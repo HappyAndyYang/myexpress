@@ -1,0 +1,60 @@
+{
+  "name": "sweetser",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon src/bin/www --exec babel-node",
+    "test": "mocha",
+    "build": "babel src -d build",
+    "serve": "node build/bin/www",
+    "models": "sequelize-auto -o 'src/models' -d usmc -h 192.168.6.191 -u usmc -p 3306 -x 1q2w!Q@W -e mysql",
+    "lint": "eslint --ext .js src",
+    "lint:fix": "eslint --fix --ext .js src"
+  },
+  "dependencies": {
+    "amqplib": "^0.5.2",
+    "bluebird": "^3.5.1",
+    "body-parser": "^1.18.3",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "ejs": "~2.5.7",
+    "express": "~4.16.0",
+    "fs": "^0.0.1-security",
+    "http-errors": "~1.6.2",
+    "jsonwebtoken": "^8.3.0",
+    "log4js": "^3.0.4",
+    "moment": "^2.22.2",
+    "morgan": "~1.9.0",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "sequelize": "^4.38.0",
+    "sockjs": "^0.3.19",
+    "uuid": "^3.3.2"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "client/*",
+      "public/*",
+      "logs/*"
+    ]
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-mocha": "^5.1.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.2.0",
+    "mocha": "^5.2.0",
+    "nodemon": "^1.18.3",
+    "path": "^0.12.7",
+    "supertest": "^3.1.0"
+  },
+  "lint-staged": {
+    "*.js": "eslint --ext .js"
+  }
+}
