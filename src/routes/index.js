@@ -1,9 +1,11 @@
-var express = require('express');
-var router = express.Router();
+import express from 'express';
+import socketClient from '../utils/socketClient';
+
+const router = express.Router();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.get('/', (/* req, res, next */) => {
+  socketClient(true, 'message');
 });
 
 module.exports = router;
